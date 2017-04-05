@@ -3,7 +3,7 @@
 require "inc/connect.php";
 
 //
-define("DIR_RAIZ", "http://localhost/memoria-visual-design/");
+define("DIR_RAIZ", "http://localhost/Memoria-Visual/");
 
 $paginas_permitidas = array('inicio', 'dados-gerais', 'carreira', 'grade-curricular' , 'galeria', 'pesquisa', 'extensao', 'tcc', 'noticias', 'contato');
 

@@ -31,13 +31,11 @@ require "inc/connect.php";
 			$senha = $_POST['senha'];
 			$email = $_POST['email'];
 
-			$query = $pdo->query("SELECT * FROM usuarios WHERE usuario = '$usuario' and senha = '$senha' and email = '$email' ");
-			$rows = $query->rowCount();
+			$query = $pdo->query("SELECT * FROM usuarios WHERE usuario = '$usuario' and senha = '$senha' and email = '$email' ");			
 			$result = $query->fetch(PDO::FETCH_ASSOC);   			
-			echo $rows;
-			exit();
+			echo $query->rowCount();			
 
-			if($rows >0)
+			if($query->rowCount() >0)
 			{            
 				session_start();
 				$_SESSION = sprt($_SESSION);
