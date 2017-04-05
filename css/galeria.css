@@ -1,0 +1,144 @@
+/*formulario de busca*/
+.formulario-busca {
+	background-color: #3a3a3a;
+}
+.formulario-busca input {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 18px;
+	color: #000;
+	font-weight: bold;
+	font-family: 'Padrao';
+	margin-top: 10px;
+}
+.formulario-busca input:focus {
+	background-color: #FFF;
+	text-align: right;
+}
+.formulario-busca .nivel2 {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	border-top: solid 1px #676767;
+}
+.formulario-busca .nivel2 li {
+	display: inline-block;
+	padding: 10px 50px;
+	border-right: solid 1px #676767;
+	cursor: pointer;
+	color: #f9f9f9;
+}
+.formulario-busca .nivel2 li:first-child {
+	border-left: solid 1px #676767;
+}
+.formulario-busca .nivel2 li label {
+	text-transform: uppercase;
+	text-align: center;
+	display: block;
+	cursor: pointer;
+}
+.formulario-busca .nivel2 li label input {
+	display: none;
+}
+.formulario-busca .nivel2 li label strong {
+	display: block;
+}
+.formulario-busca .nivel3 {
+	border-top: solid 1px #676767;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.formulario-busca .nivel3 div {
+	border-left: solid 1px #676767;
+	border-right: solid 1px #676767;
+	padding: 10px 20px;
+	min-width: 200px;
+	display: none;
+}
+.formulario-busca .nivel3 div a {
+	display: block;
+	color: #E3E3E3;
+	text-decoration: none;
+}
+.formulario-busca .nivel3 div a:hover {
+	text-decoration: underline;
+}
+h1 {
+	margin: 0;
+	padding: 0;
+	font-family: 'Padrao';
+	font-weight: normal;
+}
+.conteudo {
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+.lista-galerias {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	align-content: center;
+}
+.lista-galerias li {
+	display: inline-block;
+	width: 25%;
+	padding: 0 15px;
+	box-sizing: border-box;
+	color: #000;
+}
+.lista-galerias li > a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+}
+.lista-galerias li img {
+	display: block;
+	width: 100%;
+	margin-bottom: 5px;
+}
+.lista-galerias li .titulo {
+	font-weight: bold;
+	display: block;
+}
+.lista-galerias li .autor {
+	font-weight: bold;
+}
+.lista-galerias li .categoria {
+	display: block;
+	color: #de3122;
+	font-size: 14px;
+	text-decoration: none;
+}
+.lista-galerias li .categoria:hover {
+	text-decoration: underline;
+}
+.mais-portifolios {
+	display: flex;
+	align-content: center;
+	text-align: center;
+}
+.mais-portifolios .botao-carregar {
+	display: inline-block;
+	margin: auto;
+	border: solid 1px #000;
+	color: #000;
+	text-transform: uppercase;
+	padding: 10px;
+	margin-top: 100px;
+	text-decoration: none;
+}
+.mais-portifolios .botao-carregar:hover {
+	background-color: #000;
+	color: #FFF;
+}

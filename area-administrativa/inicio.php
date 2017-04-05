@@ -1,0 +1,1 @@
+<h1 class='titulo-pagina'>Bem vindo ao Painel Administrativo.</h1>

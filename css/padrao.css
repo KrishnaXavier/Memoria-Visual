@@ -1,0 +1,129 @@
+@font-face {
+	font-family: 'Padrao';
+	src: url('../fonts/PT_Sans-Web-Regular.ttf');
+}
+body {
+	font-family: 'Padrao';
+	background-color: #FFF;
+	padding: 0;
+	margin: 0;
+}
+.content {
+	width: 1024px;
+	margin: auto;
+}
+.noDisplay {
+	display: none;
+}
+/*cabecalho*/
+.cabecalho .content {
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	padding: 50px;
+}
+.cabecalho .logo-if img {
+	width: 84px;
+}
+.cabecalho .logo-design img {
+	width: 300px;
+}
+.cabecalho .menu-topo nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.cabecalho .menu-topo {
+	text-align: right;
+	color: #000;
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.cabecalho .menu-topo nav a {
+	color: #000;
+	text-decoration: none;
+}
+.cabecalho .menu-topo img {
+	margin-top: 30px;
+	display: inline-block;
+}
+.cabecalho .menu-topo .logo-facebook {
+	margin-left: 15px;
+}
+.cabecalho .menu-principal {
+	text-align: center;
+	margin-bottom: 10px;
+}
+.cabecalho .menu-principal ul {
+	list-style: none;
+	margin: auto;
+	display: block;
+	padding: 0;
+}
+.cabecalho .menu-principal ul li {
+	display: inline-block;
+	font-weight: bold;
+}
+.cabecalho .menu-principal ul li a {
+	color: #000;
+	font-size: 16px;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: inline-block;
+}
+.cabecalho .menu-principal ul li:after {
+	content: '/';
+	padding: 0 10px;
+}
+.cabecalho .menu-principal ul li:last-child:after {
+	display: none;
+}
+
+/*rodape*/
+.rodape {
+	padding: 50px;
+	background: #c03428;
+	background: -moz-linear-gradient(top, #c03428 0%, #df1553 100%);
+	background: -webkit-linear-gradient(top, #c03428 0%,#df1553 100%);
+	background: linear-gradient(to bottom, #c03428 0%,#df1553 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c03428', endColorstr='#df1553',GradientType=0 );
+}
+.rodape .content {
+	display: flex;
+	justify-content: space-between;
+}
+.rodape div {
+	display: inline-block;
+	vertical-align: top;
+}
+.rodape ul {
+	list-style: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+.rodape ul li {
+	color: #FFF;
+	font-size: 14px;
+}
+.rodape ul li a {
+	color: #FFF;
+	text-decoration: none;
+}
+.rodape ul li a:hover {
+	text-decoration: underline;
+}
+.rodape ul li h2 {
+	text-transform: uppercase;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+.rodape ul li address {
+	font-style: normal;
+}
+.rodape #cd-dados-rodape li address {
+	margin-top: 50px;
+}
