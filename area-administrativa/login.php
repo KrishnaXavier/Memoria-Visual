@@ -32,7 +32,7 @@ require "inc/connect.php";
 			$email = $_POST['email'];
 
 			$query = $pdo->query("SELECT * FROM usuarios WHERE usuario = '$usuario' and senha = '$senha' and email = '$email' ");			
-			$result = $query->fetch(PDO::FETCH_ASSOC);   			
+			$result = $query->fetch(PDO::FETCH_ASSOC);   						
 			echo $query->rowCount();			
 
 			if($query->rowCount() >0)

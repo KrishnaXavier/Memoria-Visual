@@ -1,8 +1,7 @@
 <?php 
 require "../inc/connect.php";
 require "../inc/Functions.php";
-e('@EditarTrabalho.php');
-e("Dados:<br>");
+
 registrarTrabalho($pdo, pegarDadosGET(), pegarImagens());
 
 /* Funções */
@@ -37,16 +36,13 @@ function moveUploadImagens($imagens){ /* retorna um array indexado com os nomes 
              		$imagensUpadas[$i] = $nome_atual;
 
              	}else{
-             		echo "Falha ao enviar";
-             		exit;
+             		$imagensUpadas['erros'][] = "Falha ao enviar";             		
              	}
              }else{
-             	echo "A imagem deve ser de no máximo 1MB";
-             	exit;
+             	$imagensUpadas['erros'][] = "A imagem deve ser de no maximo 1MB";             	
              }
          }else{
-         	echo "Somente são aceitos arquivos do tipo Imagem";
-         	exit;
+         	$imagensUpadas['erros'][] = "Somente são aceitos arquivos do tipo Imagem";         	
          }
      }
 
@@ -56,74 +52,55 @@ function moveUploadImagens($imagens){ /* retorna um array indexado com os nomes 
 function pegarDadosGET(){
  	$dados = [];
 
- 	e("Identificação do Trabalho: ");
  	if(isset($_GET['idTrabalho'])){	
- 		$dados['idTrabalho'] = $_GET['idTrabalho'];
- 		e($dados['idTrabalho']);
+ 		$dados['idTrabalho'] = $_GET['idTrabalho']; 		
  	}
-
-
- 	e("Semestre: ");
+ 	
  	if(isset($_GET['semestre'])){	
- 		$dados['semestre'] = $_GET['semestre'];
- 		e($dados['semestre']);
+ 		$dados['semestre'] = $_GET['semestre']; 	
  	}
-
- 	e("Cadeiras: "); 	
+ 	
  	$arrayCadeiras = [];
  	$contadorCadeiras = 0;
  	if(isset($_GET['cadeira0'])){
- 		while(isset($_GET['cadeira'.$contadorCadeiras]) ){
- 			e($_GET['cadeira'.$contadorCadeiras].", ");
+ 		while(isset($_GET['cadeira'.$contadorCadeiras]) ){ 			
  			$arrayCadeiras[$contadorCadeiras] = $_GET['cadeira'.$contadorCadeiras];	 			
  			$contadorCadeiras++;	
  		} 		 		
  		$dados['cadeiras'] = array($arrayCadeiras); /* exemplo de como acessar o array: $dados['cadeiras'][0][0] pega o primeiro elemento */ 		
  	}
-
- 	e("ID das Imagens que devem ser removidas: "); 	
+ 	
  	$arrayRemoverImagens = [];
  	$contadorRemoverImagens = 0;
  	if(isset($_GET['revimg0'])){
  		while(isset($_GET['revimg'.$contadorRemoverImagens]) ){
- 			$imagemRemovida = $_GET['revimg'.$contadorRemoverImagens]; 			
- 			e($imagemRemovida.", "); 			
+ 			$imagemRemovida = $_GET['revimg'.$contadorRemoverImagens]; 			 			
  			$arrayRemoverImagens[$contadorRemoverImagens] = $imagemRemovida;	 			 		
  			$contadorRemoverImagens++;	
  		} 		 		
  		$dados['revimg'] = array($arrayRemoverImagens); /* exemplo de como acessar o array: $dados['revimg'][0][0] pega o primeiro elemento */ 		
  	}
-
-
- 	e("Autor: ");	
+ 
  	if(isset($_GET['autor'])){
- 		$dados['autor'] = $_GET['autor'];
- 		e($dados['autor']);
+ 		$dados['autor'] = $_GET['autor']; 		
  	}
 
- 	e("Titulo: ");
  	if(isset($_GET['titulo'])){
- 		$dados['titulo'] = $_GET['titulo'];
- 		e($dados['titulo']);
+ 		$dados['titulo'] = $_GET['titulo']; 		
  	}
 
- 	e("Data de Conclusão: ");
 	if(isset($_GET['dataConclusao'])){ //formato da data: Y-m-d
-		$dados['data'] = $_GET['dataConclusao'];
-		e($dados['data']);
+		$dados['data'] = $_GET['dataConclusao'];		
 	}
 
-	e("Tipo: ");
 	if(isset($_GET['tipo'])){
-		$dados['tipo'] = $_GET['tipo'];
-		e($dados['tipo']);
+		$dados['tipo'] = $_GET['tipo'];		
 	}		
 
 	return $dados;	
 }
 
 function pegarImagens(){
-	e("Imagens novas da Galeria: <br>");
 	if(array_key_exists('fileimagem0', $_FILES)){
 		$arrayImagens = [];
 		$contadorFiles = 0;    
@@ -135,50 +112,45 @@ function pegarImagens(){
 		}	
 		$arrayImagens = moveUploadImagens($arrayImagens);
 		return $arrayImagens;	
-	}else{
-		e("Nem uma nova imagem foi adicionada");
+	}else{		
 		return false;
 	} 	
 }
 
-function registrarTrabalho($pdo, $dados, $imagens){	
-	/*1º query da tabela trabalho, são os dados gerias */
-	e("1º query, dados gerais: ");	
+function registrarTrabalho($pdo, $dados, $imagens){
+	$dados["imagens"] = $imagens;
+	/*1º query da tabela trabalho, são os dados gerias */	
 	$query=$pdo->query("UPDATE trabalhos SET autor = '".$dados['autor']."', tipo = '".$dados['tipo']."', tituloTrabalho = '".$dados['titulo']."' WHERE idTrabalho = '".$dados['idTrabalho']."' ");
 	
-
-	/* 2º query da tabela diciplinas_trabalhos */		
-	e("2º query, disciplinas_trabalhos: ");	
+	/* 2º query da tabela diciplinas_trabalhos */			
 	/* 2ºquery pt 1, limpa todas as colunas que tenham o idTrabalho, para depois inserir todas como novas */
 	$query=$pdo->query("DELETE FROM diciplinas_trabalhos WHERE idTrabalho = '".$dados['idTrabalho']."' ");
 
 	/* 2ºquery pt 2, insere todas as colunas que tenham o idTrabalho */
 	$contadorCadeiras = 0;
-	while( isset($dados['cadeiras'][0][$contadorCadeiras]) ){
-		e("Cadeira ".$contadorCadeiras.": ".$dados['cadeiras'][0][$contadorCadeiras]);
+	while( isset($dados['cadeiras'][0][$contadorCadeiras]) ){				
 		$codCadeira = $dados['cadeiras'][0][$contadorCadeiras];
 		$query=$pdo->query("INSERT INTO diciplinas_trabalhos(codigo, idTrabalho) VALUES ('".$codCadeira."', '".$dados['idTrabalho']."')");
 		$contadorCadeiras++;
 	}
-
-	e("3º Query, imagens removidas: ");
 	
+	/* 3º Query, imagens removidas: */
 	$contadorRemoverImagens = 0;
 	while( isset($dados['revimg'][0][$contadorRemoverImagens]) ){
 		$idImagemRemovida = $dados['revimg'][0][$contadorRemoverImagens];						
 		removerMoverImagem($idImagemRemovida, $dados['idTrabalho'], $pdo);
 		$contadorRemoverImagens++;
 	}
-
-	e("4º Query, imagens novas: ");
+	
+	/* 4º Query, imagens novas: */
 	/* Salvando Imagens Novas da Geleria */
 	$contadorImagens = 0;	
-	while(isset($imagens[$contadorImagens]) ){
-		e("Imagem: ".$imagens[$contadorImagens]);		
+	while(isset($imagens[$contadorImagens]) ){		
 		$imagem = $imagens[$contadorImagens];		
 		$query=$pdo->query("INSERT INTO imagens(data, imagem, titulo, idTrabalho) VALUES ('".$dados['data']."', '$imagem', '".$dados['titulo']."', '".$dados['idTrabalho']."')");	
 		$contadorImagens++;
-	}			
+	}
+	echo json_encode($dados);			
 }
 
 function removerMoverImagem($idImagem, $idTrabalho, $pdo){
@@ -193,8 +165,8 @@ function removerMoverImagem($idImagem, $idTrabalho, $pdo){
 	$dirDestino = "../../imgs/trabalhos/desativas/";
 	$origem = "../../imgs/trabalhos/".$imagem;		
 	if(rename($origem, $dirDestino.$imagem)){  
-		e("Imagem ".$imagem." movida com sucesso para ".$dirDestino);
+		$dados["movimento-imagens"] = "Imagem ".$imagem." movida com sucesso para ".$dirDestino;		
 	}else{
-		e("Erro ao mover a imagem: ".$imagem);
+		$dados["movimento-imagens"] = "Erro ao mover a imagem: ".$imagem;		
 	}
 }

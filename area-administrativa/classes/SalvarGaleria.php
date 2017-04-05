@@ -37,10 +37,10 @@ function moveUploadImagens($imagens){ /* retorna um array indexado com os nomes 
              		$imagensUpadas['erros'][] = "Falha ao enviar";
              	}
              }else{
-             	$imagensUpadas['erros'][] = "A imagem deve ser de no maximo 1MB";             	
+             	$imagensUpadas['erros'][] = "A imagem deve ser de no maximo 1MB";          	
              }
          }else{
-         	$imagensUpadas['erros'][] = "Somente são aceitos arquivos do tipo Imagem";         	         	
+         	$imagensUpadas['erros'][] = "Somente são aceitos arquivos do tipo Imagem";        	         	
          }
      }
 

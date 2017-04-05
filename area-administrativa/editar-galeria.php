@@ -15,15 +15,6 @@ $semestre = $result['semestre'];
 $titulo = $result['tituloTrabalho'];
 $tipo = $result['tipo'];
 
-/* mostrando dados para debug
-e("Id Trabalho a ser Editado: ".$_GET['idTrabalho']);
-e("Titulo: ".$titulo);
-e("Autor: ".$autor);
-e("Data: ".$data);
-e("Semestre: ".$semestre);
-*/
-
-/* Imagens associadas ao trabalho */
 $query=$pdo->query("SELECT * FROM imagens WHERE idTrabalho = '$idTrabalho' AND ativa = 1");
 $result=$query->fetch(PDO::FETCH_ASSOC);
 while($result!=null){
@@ -107,9 +98,58 @@ while($result!=null){
 			type: 'POST',
 			success: function(data) 
 			{					
-				$('#alerta').html(data);															
-			}
-		});		
+				console.log('done');			
+				var infs = JSON.parse(data);
+				console.log(JSON.stringify(infs));			
+				
+				var htmlAviso = '';
+				if(infs.hasOwnProperty('erros')){
+					htmlAviso += '<br>Erro: '+infs['erros'];
+					$('#aviso').html(htmlAviso);
+					setTimeout(
+						function(){
+							$('#avisosMensagens').hide('slow');
+						},
+						4500
+						);					
+					$("#salvarGaleria").prop("disabled",false);
+				}
+				if(infs['imagens'].hasOwnProperty('erros')){
+					htmlAviso += '<br>Erro: '+infs['imagens']['erros'];
+					$('#aviso').html(htmlAviso);
+					setTimeout(
+						function(){
+							$('#avisosMensagens').hide('slow');
+						},
+						4500
+						);					
+					$("#salvarGaleria").prop("disabled",false);
+				}
+				else{
+					$('#aviso').html('Edição feita com sucesso!');
+					$('#avisosMensagens').hide('slow');	
+					setTimeout(
+						function(){
+							location.reload();	
+						},
+						2500
+						);				
+				}						
+			},
+			beforeSend: function(){     
+				console.log('antes de enviar');
+				$('#aviso').html('Carregando...Aguarde');				
+				$('#avisosMensagens').show();				
+			},
+			error: function (){
+				console.log('fail');
+				$('#aviso').html('Ocorreu algum erro, tente de novo');
+				$('#avisosMensagens').hide('slow');
+				$("#salvarGaleria").prop("disabled",false);
+			}																			
+		});
+
+
 	}
 
 	function removerImagem(img){
@@ -126,8 +166,31 @@ while($result!=null){
 			type: 'POST',
 			success: function(data) 
 			{					
-				$('#alerta').html(data);															
-			}
+				console.log('done');			
+				var infs = JSON.parse(data);
+				console.log(JSON.stringify(infs));			
+				
+				var htmlAviso = '';						
+				$('#aviso').html('Galeria desativa com sucesso!');
+				$('#avisosMensagens').hide('slow');	
+				setTimeout(
+					function(){
+						location.reload();	
+					},
+					2500
+					);								
+			},
+			beforeSend: function(){     
+				console.log('antes de enviar');
+				$('#aviso').html('Carregando...Aguarde');				
+				$('#avisosMensagens').show();				
+			},
+			error: function (){
+				console.log('fail');
+				$('#aviso').html('Ocorreu algum erro, tente de novo');
+				$('#avisosMensagens').hide('slow');
+				$("#salvarGaleria").prop("disabled",false);
+			}																								
 		});		
 	}
 
@@ -273,4 +336,17 @@ while($result!=null){
 		</div>
 
 	</div>
+</div>
+
+<div class='conteiner-campos' id=''>
+	<divl class='alertas' id='alerta'></div>
+	</div>
+
+	<div id='avisosMensagens' class='avisos-mensagens'>
+		<div class='container-aviso'>				
+			<dvi class='aviso' id='aviso'></div>				
+			</div>			
+		</div>
+
+	</div>	
 </div>
