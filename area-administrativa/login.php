@@ -35,6 +35,7 @@ require "inc/connect.php";
 			$rows = $query->rowCount();
 			$result = $query->fetch(PDO::FETCH_ASSOC);   			
 			echo $rows;
+			exit();
 
 			if($rows >0)
 			{            

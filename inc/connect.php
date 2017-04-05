@@ -2,8 +2,7 @@
 //for local connection configuration
 try
 {
-	$pdo = new PDO( 'mysql:host=localhost;dbname=projetodesign', 'root', '' );	
-	/* servidor web bd: artan201_projetodesign, user: artan201_projeto , senha: lagartixalilas*/
+	$pdo = new PDO( 'mysql:host=localhost;dbname=projetodesign', 'root', '' );		
 }
 catch ( PDOException $e )
 {
