@@ -1,7 +1,34 @@
-<?php 
-require "inc/head.php"; 
+<?php
 require "inc/Functions.php";
 require "inc/connect.php";
+
+if (isset($_POST['entrar']))
+{
+	$_POST = sprt($_POST);
+	$usuario = $_POST['usuario'];
+	$senha = $_POST['senha'];
+	$email = $_POST['email'];
+
+	$query = $pdo->query("SELECT * FROM usuarios WHERE usuario = '$usuario' and senha = '$senha' and email = '$email' ");			
+	$result = $query->fetch(PDO::FETCH_ASSOC);   								
+
+	if($query->rowCount() >0)
+	{            
+		session_start();
+		$_SESSION = sprt($_SESSION);
+		$_SESSION['email']=$email;
+		$_SESSION['usuario']=$usuario;
+		$_SESSION['idUsuario']=$result['idUsuario'];								
+		header('Location: inicio');
+		exit; 
+	}
+
+	else
+	{                        		
+	}
+} 
+
+require "inc/head.php"; 
 ?>
 <h1 class='titulo-pagina'>Login</h1>
 <form action = '#' method = 'post' >
@@ -22,36 +49,7 @@ require "inc/connect.php";
 </form>
 
 <center>
-	<div class='alerta'>
-		<?php    		      
-		if (isset($_POST['entrar']))
-		{
-			$_POST = sprt($_POST);
-			$usuario = $_POST['usuario'];
-			$senha = $_POST['senha'];
-			$email = $_POST['email'];
-
-			$query = $pdo->query("SELECT * FROM usuarios WHERE usuario = '$usuario' and senha = '$senha' and email = '$email' ");			
-			$result = $query->fetch(PDO::FETCH_ASSOC);   						
-			echo $query->rowCount();			
-
-			if($query->rowCount() >0)
-			{            
-				session_start();
-				$_SESSION = sprt($_SESSION);
-				$_SESSION['email']=$email;
-				$_SESSION['usuario']=$usuario;
-				$_SESSION['idUsuario']=$result['idUsuario'];								
-				header('Location: inicio');
-				exit; 
-			}
-
-			else
-			{                        
-				echo "Usuário ou senha invalido(s)";
-			}
-		}
-		?>
+	<div class='alerta'>	
 	</div>
 </center>
 
