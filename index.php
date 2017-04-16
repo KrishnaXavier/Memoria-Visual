@@ -1,8 +1,6 @@
 <?php
-
 require "inc/connect.php";
 
-//
 define("DIR_RAIZ", "http://localhost/Memoria-Visual/");
 
 $paginas_permitidas = array('inicio', 'dados-gerais', 'carreira', 'grade-curricular' , 'galeria', 'pesquisa', 'extensao', 'tcc', 'noticias', 'contato');
@@ -17,10 +15,15 @@ else
 }
 
 ?>
-
-<link rel='stylesheet' href='<?php echo DIR_RAIZ; ?>css/padrao.css'>
-
-<script src="<?php echo DIR_RAIZ; ?>js/jquery-3.2.0.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bacharelado Design</title>
+	<link rel='stylesheet' href='<?php echo DIR_RAIZ; ?>css/padrao.css'>
+	<script src="<?php echo DIR_RAIZ; ?>js/jquery-3.2.0.min.js"></script>
+	<link rel='icon' href='imgs/fixas/favicon.png' type='image/x-icon'/>
+</head>
 
 <body>
 
@@ -152,3 +155,4 @@ else
 	</footer>
 
 </body>
+</html>
