@@ -233,5 +233,77 @@
 	top: 50%;
 	width: 100%;
 	text-align: center;			
+}
 
+/* disciplinas.php */
+.disciplinas{
+    margin: auto;
+    width: 75%;
+}
+
+.disciplinas .conteiner-menor {
+    width: 45%;
+    float: left;
+    margin: 10px;
+}
+
+.disciplinas .conteiner-campos {
+    font-size: 1.5em;
+    margin: 20px;
+}
+
+.disciplinas .titulo-campo {
+    width: 100%;    
+    margin-bottom: 2px;
+}
+
+.disciplinas .cadeiras{
+	font-size: 1.2em;
+}
+
+.disciplinas .slot-cadeira{
+	float: left;
+	width: 100%;
+	margin: 10px;
+}
+
+.disciplinas .cadeira{
+	width: 100%;
+	float: left;
+	margin: 1px;
+}
+
+.disciplinas .btn{
+	float: left;
+	margin: 1px;
+	border: none;
+	text-align: center;
+    text-decoration: none;
+    display: inline-block;    
+    cursor: pointer;
+}
+
+.disciplinas .btn-editar{	
+	background-color: var(--p-ct1);    
+    color: #fff;        
+}
+
+.disciplinas .btn-desativar{	
+	background-color: #7e7e7e;
+    color: #fff;        
+}
+
+.disciplinas .nova-disciplina{
+	margin: 20px;
+}
+
+.disciplinas .btn-adicionar{
+	font-size: 1.5em;
+	padding: 15px 32px;		
+	background-color: var(--p-ct1);
+    border: none;
+    color: #fff;        
+    text-decoration: none;
+    display: inline-block;    
+    cursor: pointer;
 }

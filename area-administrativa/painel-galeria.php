@@ -74,7 +74,7 @@
 							$('#avisosMensagens').hide('slow');
 						},
 						4500
-					);					
+						);					
 					$("#salvarGaleria").prop("disabled",false);
 				}
 				if(infs['imagens'].hasOwnProperty('erros')){
@@ -85,7 +85,7 @@
 							$('#avisosMensagens').hide('slow');
 						},
 						4500
-					);					
+						);					
 					$("#salvarGaleria").prop("disabled",false);
 				}
 				else{
@@ -96,7 +96,7 @@
 							location.reload();	
 						},
 						2500
-					);				
+						);				
 				}						
 			},
 			beforeSend: function(){     
@@ -203,14 +203,16 @@
 		</div>
 
 		<div class='conteiner-campos' id=''>
-			<divl class='alertas' id='alerta'></div>
-			</div>
-
-			<div id='avisosMensagens' class='avisos-mensagens'>
-				<div class='container-aviso'>				
-					<dvi class='aviso' id='aviso'></div>				
-					</div>			
-				</div>
-
-			</div>	
+			<div class='alertas' id='alerta'></div>
 		</div>
+
+		<div id='avisosMensagens' class='avisos-mensagens'>
+			<div class='container-aviso'>				
+				<div class='aviso' id='aviso'></div>				
+			</div>			
+		</div>
+
+	</div>	
+</div>
+</div>
+</dvi>
