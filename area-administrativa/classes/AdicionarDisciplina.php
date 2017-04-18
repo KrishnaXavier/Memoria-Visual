@@ -16,4 +16,9 @@ function salvarDisciplina($pdo){
 	$query=$pdo->query("INSERT INTO 
 		disciplinas(codigo, nomeDisciplina, horaAulaSemanal, cargaHorarioTeoria, cargaHorarioPratica, cargaHorarioTotal, semestre, ativa, emenda) 
 		VALUES ('".$codigo."', '".$nome."', '".$semanal."','".$teorica."','".$pratica."','".$total."','".$semestre."','1','".$emenda."')");
+
+	if(!$query){		
+		echo "erro";
+		print_r($pdo->errorInfo()[2]);
+	}
 }

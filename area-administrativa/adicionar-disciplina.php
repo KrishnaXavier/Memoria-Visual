@@ -7,14 +7,18 @@
 			type: "POST",			
 			url: 'classes/AdicionarDisciplina.php',
 			data: dados,  							
-			success:function(data){					
-				$('#aviso').html('Disciplina Adicionada!');
-				setTimeout(
-					function(){
-						location.reload();	
-					},
-					2500
-					);
+			success:function(data){								
+				if(data!=""){
+					$('#aviso').html('Acorreu um erro: <br>'+data);
+				}else{
+					$('#aviso').html('Disciplina Adicionada!');
+					setTimeout(
+						function(){
+							location.reload();	
+						},
+						2500
+						);
+				}				
 			},
 			beforeSend: function(){     
 				console.log('antes de enviar');
@@ -55,57 +59,59 @@
 		return dados;
 	}
 </script>
-<h1 class='titulo-pagina'>Adicionar Disciplinas (em desenvolvimento)</h1>
+<h1 class='titulo-pagina'>Adicionar Disciplinas</h1>
 <div class='conteiner'>
 	<div class='disciplinas'>
 		<div class='pai-conteiner-menor'>
 			<div class='conteiner-menor'>
-				<div class="conteiner-campos" id="">
-					<div class="titulo-campo">Código:</div>
-					<input type="text" class="" id="codigo" name="codigo" placeholder="DES.005">
+				<form onsubmit="adicionarDisciplina(); return false;">
+					<div class="conteiner-campos" id="">
+						<div class="titulo-campo">Código:</div>
+						<input type="text" class="" id="codigo" name="codigo" placeholder="código único" required>
+					</div>
+
+					<div class="conteiner-campos" id="">
+						<div class="titulo-campo">Nome:</div>
+						<input type="text" class="" id="nome" name="nome" placeholder="nome da cadeira" required>
+					</div>			
+
+					<div class="conteiner-campos" id="">
+						<div class="titulo-campo">Semestre:</div>
+						<input type="number" class="" id="semestre" name="semestre" placeholder="1 ou 2 ou 3..." required>
+					</div>			
+
+					<div class="conteiner-campos" id="">
+						<div class="titulo-campo">Emenda:</div>
+						<input type="text" class="" id="emenda" name="emenda" placeholder="código da emenda" required>
+					</div>
 				</div>
 
-				<div class="conteiner-campos" id="">
-					<div class="titulo-campo">Nome:</div>
-					<input type="text" class="" id="nome" name="nome" placeholder="Fundamentos do Design">
-				</div>			
+				<div class='conteiner-menor'>
+					<div class="conteiner-campos" id="">
+						<div class="titulo-campo">Horas Aulas Semanal:</div>
+						<input type="number" class="" id="semanal" name="semanal" placeholder="horas" step="0.01" required>
+					</div>
 
-				<div class="conteiner-campos" id="">
-					<div class="titulo-campo">Semestre:</div>
-					<input type="number" class="" id="semestre" name="semestre" placeholder="7">
-				</div>			
+					<div class="conteiner-campos" id="">
+						<div class="titulo-campo">Carga Horária Teórica:</div>
+						<input type="number" class="" id="teorica" name="teorica" placeholder="horas" step="0.01" required>
+					</div>
 
-				<div class="conteiner-campos" id="">
-					<div class="titulo-campo">Emenda:</div>
-					<input type="text" class="" id="emenda" name="emenda" placeholder="5290_2014_1">
+					<div class="conteiner-campos" id="">
+						<div class="titulo-campo">Carga Horária Prática:</div>
+						<input type="number" class="" id="pratica" name="pratica" placeholder="horas" step="0.01" required>
+					</div>
+
+					<div class="conteiner-campos" id="">
+						<div class="titulo-campo">Carga Horária Total:</div>
+						<input type="number" class="" id="total" name="total" placeholder="horas" step="0.01" required>
+					</div>
+				</div>				
+
+				<div class="nova-disciplina">
+					<input type="submit" class="btn-adicionar" onsubmit="" value="Adicionar Disciplina">
 				</div>
-			</div>
-
-			<div class='conteiner-menor'>
-				<div class="conteiner-campos" id="">
-					<div class="titulo-campo">Horas Aulas Semanal:</div>
-					<input type="number" class="" id="semanal" name="semanal" placeholder="2.15">
-				</div>
-
-				<div class="conteiner-campos" id="">
-					<div class="titulo-campo">Carga Horária Teórica:</div>
-					<input type="number" class="" id="teorica" name="teorica" placeholder="120">
-				</div>
-
-				<div class="conteiner-campos" id="">
-					<div class="titulo-campo">Carga Horária Prática:</div>
-					<input type="number" class="" id="pratica" name="pratica" placeholder="80">
-				</div>
-
-				<div class="conteiner-campos" id="">
-					<div class="titulo-campo">Carga Horária Total:</div>
-					<input type="number" class="" id="total" name="total" placeholder="200">
-				</div>
-			</div>				
-
-			<div class="nova-disciplina">
-				<button class="btn-adicionar" onclick="adicionarDisciplina()">Adicionar Disciplina</button>
-			</div>
+			</form>
 		</div>
 	</div>
 </div>
