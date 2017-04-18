@@ -200,10 +200,9 @@ while($result!=null){
 	function c(txt){
 		console.log(txt);
 	}
-
 </script>
 
-<h1 class='titulo-pagina'> Painel Edição de Galeria</h1>
+<h1 class='titulo-pagina'>Painel Edição de Galeria</h1>
 
 <div class='conteiner'>
 	<div class='painel'>
@@ -273,22 +272,22 @@ while($result!=null){
 			<div class='conteiner-menor'>
 				<div class='autor conteiner-campos' id=''>
 					<div class='titulo-campo'>Autor(nome do aluno):</div>
-					<input type='text' class='' id='autor' name='autor' placeholder='nome do aluno' value="<?php echo $autor; ?>" />
+					<input type='text' class='' id='autor' name='autor' placeholder='nome do aluno' value="<?php echo $autor; ?>" required />
 				</div>
 
 				<div class='titulo-trabalho conteiner-campos' id=''>
 					<div class='titulo-campo'>Título do Trabalho:</div>
-					<input type='text' class='' id='titulo' name='titulo' placeholder='nome do trabalho' value="<?php echo $titulo; ?>" />
+					<input type='text' class='' id='titulo' name='titulo' placeholder='nome do trabalho' value="<?php echo $titulo; ?>" required />
 				</div>
 
 				<div class='data-conclusao conteiner-campos' id=''>
 					<div class='titulo-campo'>Data de conslusão do trabalho:</div>
-					<input type='date' class='' id='data' name='data' value="<?php echo $data; ?>"/>
+					<input type='date' class='' id='data' name='data' value="<?php echo $data; ?>" required/>
 				</div>
 
 				<div class='tipo conteiner-campos' id=''>
 					<div class='titulo-campo'>Tipo:</div>
-					<input type='' class='' id='tipo' name='tipo' placeholder='Estudos Volumétricos' value="<?php echo $tipo; ?>" />
+					<input type='' class='' id='tipo' name='tipo' placeholder='Estudos Volumétricos' value="<?php echo $tipo; ?>"  required/>
 				</div>	
 			</div>
 		</div>
@@ -331,22 +330,11 @@ while($result!=null){
 			</div>
 		</div>
 
-		<div class='conteiner-campos' id=''>
-			<divl class='alertas' id='alerta'></divl>
-		</div>
-
 	</div>
 </div>
 
-<div class='conteiner-campos' id=''>
-	<divl class='alertas' id='alerta'></div>
+<div id='avisosMensagens' class='avisos-mensagens'>
+	<div class='container-aviso'>				
+		<div class='aviso' id='aviso'></div>								
 	</div>
-
-	<div id='avisosMensagens' class='avisos-mensagens'>
-		<div class='container-aviso'>				
-			<dvi class='aviso' id='aviso'></div>				
-			</div>			
-		</div>
-
-	</div>	
 </div>
