@@ -64,6 +64,7 @@
 	<div class='disciplinas'>
 		<div class='pai-conteiner-menor'>
 			<div class='conteiner-menor'>
+
 				<form onsubmit="adicionarDisciplina(); return false;">
 					<div class="conteiner-campos" id="">
 						<div class="titulo-campo">Código:</div>
@@ -112,6 +113,7 @@
 					<input type="submit" class="btn-adicionar" onsubmit="" value="Adicionar Disciplina">
 				</div>
 			</form>
+			
 		</div>
 	</div>
 </div>
