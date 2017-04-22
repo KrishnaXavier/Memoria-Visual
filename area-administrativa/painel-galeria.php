@@ -63,7 +63,7 @@
 			success:function(data){				
 				console.log('done');			
 				var infs = JSON.parse(data);
-				console.log(JSON.stringify(infs));			
+				console.log(JSON.stringify(infs));					
 				
 				var htmlAviso = '';
 				if(infs.hasOwnProperty('erros')){
@@ -89,8 +89,7 @@
 					$("#salvarGaleria").prop("disabled",false);
 				}
 				else{
-					$('#aviso').html('Galeria Salva!');
-					$('#avisosMensagens').hide('slow');	
+					$('#aviso').html('Galeria Salva!');					
 					setTimeout(
 						function(){
 							location.reload();	

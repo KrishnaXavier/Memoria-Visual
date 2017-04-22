@@ -68,7 +68,7 @@
 				<form onsubmit="adicionarDisciplina(); return false;">
 					<div class="conteiner-campos" id="">
 						<div class="titulo-campo">Código:</div>
-						<input type="text" class="" id="codigo" name="codigo" placeholder="código único" required>
+						<input type="text" class="" id="codigo" name="codigo" placeholder="código único, não editável" required>
 					</div>
 
 					<div class="conteiner-campos" id="">

@@ -11,16 +11,16 @@
             
             <div class="conteiner-campos" id="">   
                 <div class='titulo-campo'>Titulo:</div>     
-                <input type="text" size="40" name="titulo" />             
+                <input type="text" size="40" name="titulo"  required />             
             </div>    
 
             <div class='conteiner-campos'>
                 <div class='titulo-campo'>Imagem destaque da Noticía:</div>
-                <input type="file" name="imagem-noticia" id="imagem-noticia">
+                <input type="file" name="imagem-noticia" id="imagem-noticia" required />
             </div>
 
             <div class="conteiner-campos" id="">                
-                <textarea name="noticia" cols="100" rows="20"></textarea>        
+                <textarea name="noticia" cols="100" rows="20" required/></textarea>        
             </div>    
 
             <div class='conteiner-salvar-noticia'>

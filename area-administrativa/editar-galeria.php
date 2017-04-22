@@ -1,4 +1,5 @@
 <?php
+require "inc/permission.php";
 require "inc/head.php";
 require "inc/menu.php";
 require "inc/connect.php";
@@ -47,7 +48,7 @@ while($result!=null){
 		$('.semestre'+semestre+'-cadeiras').css("display","initial");
 	}
 
-	function registrarTrabalho(){
+	function editarTrabalho(){
 		/* pegando dados dos inputs */
 		var semestre = $('input[name="semestre"]:checked').val(); /* pega o valor do radio do semestre */
 		var autor = $('input[name="autor"]').val();
@@ -110,7 +111,7 @@ while($result!=null){
 						function(){
 							$('#avisosMensagens').hide('slow');
 						},
-						4500
+						2500
 						);					
 					$("#salvarGaleria").prop("disabled",false);
 				}
@@ -126,11 +127,11 @@ while($result!=null){
 					$("#salvarGaleria").prop("disabled",false);
 				}
 				else{
-					$('#aviso').html('Edição feita com sucesso!');
-					$('#avisosMensagens').hide('slow');	
+					$('#aviso').html('Edição feita com sucesso!');										
 					setTimeout(
 						function(){
 							location.reload();	
+							window.location.replace("mostrar-galerias");
 						},
 						2500
 						);				
@@ -148,8 +149,6 @@ while($result!=null){
 				$("#salvarGaleria").prop("disabled",false);
 			}																			
 		});
-
-
 	}
 
 	function removerImagem(img){
@@ -171,11 +170,10 @@ while($result!=null){
 				console.log(JSON.stringify(infs));			
 				
 				var htmlAviso = '';						
-				$('#aviso').html('Galeria desativa com sucesso!');
-				$('#avisosMensagens').hide('slow');	
+				$('#aviso').html('Galeria desativa com sucesso!');				
 				setTimeout(
-					function(){
-						location.reload();	
+					function(){						
+						window.location.replace("mostrar-galerias");
 					},
 					2500
 					);								
@@ -187,16 +185,13 @@ while($result!=null){
 			},
 			error: function (){
 				console.log('fail');
-				$('#aviso').html('Ocorreu algum erro, tente de novo');
-				$('#avisosMensagens').hide('slow');
+				$('#aviso').html('Ocorreu algum erro, tente de novo');				
 				$("#salvarGaleria").prop("disabled",false);
 			}																								
 		});		
 	}
 
-
 	/* Funções de Redução */
-
 	function c(txt){
 		console.log(txt);
 	}
@@ -206,123 +201,123 @@ while($result!=null){
 
 <div class='conteiner'>
 	<div class='painel'>
-		<div class='pai-conteiner-menor'>
-			<div class='conteiner-menor'>
-				<div class='semestre conteiner-campos' id=''>
-					<div class='titulo-campo'>Semestre de conclusão do trabalho:</div>
-					<?php 				
-					for($i=1; $i<=8; $i++){							
-						if($i==$semestre){
-							$checked = 'checked="$checked"';
-						}else{
-							$checked = '';
-						}										
+		<form enctype="multipart/form-data" onsubmit="editarTrabalho(); return false;">
+			<div class='pai-conteiner-menor'>
 
-						echo ("<input type='radio' name='semestre'  $checked value='$i'>$i º");										
-					}
-					?>			
-				</div>
-
-				<div class='cadeiras conteiner-campos' id=''>
-					<div class='titulo-campo'>Cadeira(s):</div>					
-					<?php 					
-					contruirHTMLCadeiras($pdo, $semestre, $idTrabalho);
-
-					function contruirHTMLCadeiras($pdo, $semestreDisplay, $idTrabalho){
-						$query=$pdo->query("SELECT * FROM diciplinas_trabalhos WHERE  idTrabalho = $idTrabalho");
-						$result=$query->fetch(PDO::FETCH_ASSOC);
-						while($result!=null){
-							$arrayCodDisciplinas[] = $result['codigo'];							
-							$result=$query->fetch(PDO::FETCH_ASSOC);							
-						}
-
-						for($semestre=1; $semestre<=8; $semestre++){
-							$query=$pdo->query("SELECT * FROM disciplinas WHERE semestre = $semestre");	
-							$result=$query->fetch(PDO::FETCH_ASSOC);
-
-							if($semestreDisplay==$semestre){
-								$display = 'inline';			
+				<div class='conteiner-menor'>
+					<div class='semestre conteiner-campos' id=''>
+						<div class='titulo-campo'>Semestre de conclusão do trabalho:</div>
+						<?php 				
+						for($i=1; $i<=8; $i++){							
+							if($i==$semestre){
+								$checked = 'checked="$checked"';
 							}else{
-								$display = 'none';			
-							}		
+								$checked = '';
+							}										
 
-							echo '<div class="semestre'.$semestre.'-cadeiras" style="display:'.$display.';" >';	
-							while($result!=null){ 					
-								$nome_utf8_enc = utf8_encode ($result['nomeDisciplina']);			
-								$codigo = $result['codigo'];								
+							echo ("<input type='radio' name='semestre'  $checked value='$i'>$i º");										
+						}
+						?>			
+					</div>
 
-								if(in_array($codigo, $arrayCodDisciplinas)){
-									$checked = 'checked="true"';
-								}else{
-									$checked = '';
-								}
+					<div class='cadeiras conteiner-campos' id=''>
+						<div class='titulo-campo'>Cadeira(s):</div>					
+						<?php 					
+						contruirHTMLCadeiras($pdo, $semestre, $idTrabalho);
 
-								echo '<input type="checkbox" value="'.$codigo.'" name="cadeiras" '.$checked.'/>'.$nome_utf8_enc.' <br>';
-								$result=$query->fetch(PDO::FETCH_ASSOC);
+						function contruirHTMLCadeiras($pdo, $semestreDisplay, $idTrabalho){
+							$query=$pdo->query("SELECT * FROM diciplinas_trabalhos WHERE  idTrabalho = $idTrabalho");
+							$result=$query->fetch(PDO::FETCH_ASSOC);
+							while($result!=null){
+								$arrayCodDisciplinas[] = $result['codigo'];							
+								$result=$query->fetch(PDO::FETCH_ASSOC);							
 							}
-							echo '</div>';
+
+							for($semestre=1; $semestre<=8; $semestre++){
+								$query=$pdo->query("SELECT * FROM disciplinas WHERE semestre = $semestre");	
+								$result=$query->fetch(PDO::FETCH_ASSOC);
+
+								if($semestreDisplay==$semestre){
+									$display = 'inline';			
+								}else{
+									$display = 'none';			
+								}		
+
+								echo '<div class="semestre'.$semestre.'-cadeiras" style="display:'.$display.';" >';	
+								while($result!=null){ 					
+									$nome_utf8_enc = utf8_encode ($result['nomeDisciplina']);			
+									$codigo = $result['codigo'];								
+
+									if(in_array($codigo, $arrayCodDisciplinas)){
+										$checked = 'checked="true"';
+									}else{
+										$checked = '';
+									}
+
+									echo '<input type="checkbox" value="'.$codigo.'" name="cadeiras" '.$checked.'/>'.$nome_utf8_enc.' <br>';
+									$result=$query->fetch(PDO::FETCH_ASSOC);
+								}
+								echo '</div>';
+							}
+
 						}
 
-					}
+						?>
+					</div>
+				</div>
 
-					?>
+				<div class='conteiner-menor'>
+					<div class='autor conteiner-campos' id=''>
+						<div class='titulo-campo'>Autor(nome do aluno):</div>
+						<input type='text' class='' id='autor' name='autor' placeholder='nome do aluno' value="<?php echo $autor; ?>" required />
+					</div>
+
+					<div class='titulo-trabalho conteiner-campos' id=''>
+						<div class='titulo-campo'>Título do Trabalho:</div>
+						<input type='text' class='' id='titulo' name='titulo' placeholder='nome do trabalho' value="<?php echo $titulo; ?>" required />
+					</div>
+
+					<div class='data-conclusao conteiner-campos' id=''>
+						<div class='titulo-campo'>Data de conslusão do trabalho:</div>
+						<input type='date' class='' id='data' name='data' value="<?php echo $data; ?>" required/>
+					</div>
+
+					<div class='tipo conteiner-campos' id=''>
+						<div class='titulo-campo'>Tipo:</div>
+						<input type='' class='' id='tipo' name='tipo' placeholder='Estudos Volumétricos' value="<?php echo $tipo; ?>"  required/>
+					</div>	
 				</div>
 			</div>
 
-			<div class='conteiner-menor'>
-				<div class='autor conteiner-campos' id=''>
-					<div class='titulo-campo'>Autor(nome do aluno):</div>
-					<input type='text' class='' id='autor' name='autor' placeholder='nome do aluno' value="<?php echo $autor; ?>" required />
+			<div class='conteiner-imagens'>
+				<div class='conteiner-campos' id=''>
+					<div class='titulo-campo'>Adicionar novas Imagens a Galeria</div>									
+					<input type="file" name="fileimagem" id="fileimagem" multiple="true"/>								
+					<div>Aviso: selecione todas as imagens do trabalho</div>
 				</div>
+			</div>
 
-				<div class='titulo-trabalho conteiner-campos' id=''>
-					<div class='titulo-campo'>Título do Trabalho:</div>
-					<input type='text' class='' id='titulo' name='titulo' placeholder='nome do trabalho' value="<?php echo $titulo; ?>" required />
+			<div class='conteiner-imagens'>
+				<div class='conteiner-campos' id=''>
+					<div class='titulo-campo'>Clique nas imagens para remover da Galeria</div>	
+					<div cass='conteiner-remover-imagem'>
+						<?php 
+						$diretorioImagens = '../imgs/trabalhos/';
+						foreach ($arrayImagens as $key => $value) {					
+							echo ("<img src='".$diretorioImagens.$value."' class='remover-imagens' id='".$arrayIdImagens[$key]."' height='180px' onclick='removerImagem(this)'/>");					
+						}
+						?>			
+					</div>				
 				</div>
+			</div>
 
-				<div class='data-conclusao conteiner-campos' id=''>
-					<div class='titulo-campo'>Data de conslusão do trabalho:</div>
-					<input type='date' class='' id='data' name='data' value="<?php echo $data; ?>" required/>
+			<div class='conteiner-salvar-trabalho'>
+				<div class='conteiner-campos' id=''>
+					<input type="submit" class='btn-principal' value="Confirmar Edição da Galeria"/>
 				</div>
-
-				<div class='tipo conteiner-campos' id=''>
-					<div class='titulo-campo'>Tipo:</div>
-					<input type='' class='' id='tipo' name='tipo' placeholder='Estudos Volumétricos' value="<?php echo $tipo; ?>"  required/>
-				</div>	
 			</div>
-		</div>
 
-		<div class='conteiner-imagens'>
-			<div class='conteiner-campos' id=''>
-				<div class='titulo-campo'>Adicionar novas Imagens a Galeria</div>				
-				<form enctype="multipart/form-data">
-					<input type="file" name="fileimagem" id="fileimagem" multiple="true"/>			
-				</form>
-				Aviso: selecione todas as imagens do trabalho
-			</div>
-		</div>
-
-		<div class='conteiner-imagens'>
-			<div class='conteiner-campos' id=''>
-				<div class='titulo-campo'>Clique nas imagens para remover da Galeria</div>	
-				<div cass='conteiner-remover-imagem'>
-					<?php 
-					$diretorioImagens = '../imgs/trabalhos/';
-					foreach ($arrayImagens as $key => $value) {					
-						echo ("<img src='".$diretorioImagens.$value."' class='remover-imagens' id='".$arrayIdImagens[$key]."' height='180px' onclick='removerImagem(this)'/>");					
-					}
-					?>			
-				</div>				
-			</div>
-		</div>
-
-
-
-		<div class='conteiner-salvar-trabalho'>
-			<div class='conteiner-campos' id=''>
-				<button onclick="registrarTrabalho()" class='btn-principal'>Confirmar Edição da Galeria</button>
-			</div>
-		</div>
+		</form>
 
 		<div class='conteiner-deletar-trabalho'>
 			<div class='conteiner-campos' id=''>

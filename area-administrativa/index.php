@@ -8,7 +8,7 @@ $pages = array(
 	'galeria', 'painel-galeria', 'editar-galeria', 'mostrar-galerias', 'mostrar-galerias-desativadas', 
 	'noticia', 'painel-noticia', 'editar-noticia', 'mostrar-noticias', 
 	'documentos', 'carregar-imagem', 
-	'disciplinas', 'editar-disciplinas', 'adicionar-disciplina', 'mostrar-disciplinas-desativadas',
+	'disciplinas', 'editar-disciplinas', 'adicionar-disciplina', 'mostrar-disciplinas-desativadas', 'mostrar-disciplinas',
 	'login'
 	);
 

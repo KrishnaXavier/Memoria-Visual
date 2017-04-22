@@ -1,12 +1,9 @@
-<h1>Editar Noticia</h1>
-
 <?php
+require "inc/permission.php";
 require "inc/head.php";
 require "inc/menu.php";
 require "inc/connect.php";
 require "inc/Functions.php";
-
-e("Id Noticia a ser Editado: ".$_GET['idNoticia']);
 
 $idNoticia = $_GET['idNoticia'];
 $query=$pdo->query("SELECT * FROM noticias WHERE idNoticia = '$idNoticia' ");
@@ -31,11 +28,11 @@ $imagem = $result['imagem'];
 
 			<div class="conteiner-campos" id="">   
 				<div class='titulo-campo'>Titulo:</div>     
-				<input type="text" size="40" name="titulo" value="<?php echo $titulo?>">
+				<input type="text" size="40" name="titulo" value="<?php echo $titulo?>" required>
 			</div>                
 
 			<div class="conteiner-campos" id="">                
-				<textarea name="noticia" cols="100" rows="20"> <?php echo $corpoNoticia?> </textarea>        
+				<textarea name="noticia" cols="100" rows="20" required> <?php echo $corpoNoticia?> </textarea>        
 			</div>  			
 
 			<div class='conteiner-campos'>
