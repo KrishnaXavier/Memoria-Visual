@@ -11,6 +11,11 @@ $imagem = pegarImagem();
 echo "<br>Imagem: ".$imagem;
 
 $query=$pdo->query("INSERT INTO noticias(titulo, noticia, imagem) VALUES ('$titulo', '$noticia', '$imagem')");
+echo "<script type='text/javascript'>
+        alert('Notifica Salva com Sucesso! Redirecionando...');
+        window.location.replace('../');
+    </script>";
+
 if(!$query){
 	echo "<br>Falha ao Registrar: ";
 	print_r($query->errorInfo());

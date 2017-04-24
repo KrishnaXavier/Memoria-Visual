@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Abr-2017 às 23:39
+-- Generation Time: 25-Abr-2017 às 00:52
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -53,6 +53,11 @@ CREATE TABLE IF NOT EXISTS `diciplinas_trabalhos` (
 --
 
 INSERT INTO `diciplinas_trabalhos` (`codigo`, `idTrabalho`) VALUES
+('DES.039', 557),
+('DES.040', 557),
+('DES.044', 557),
+('DES.041', 559),
+('DES.043', 559),
 ('DES.027', 560),
 ('DES.029', 560),
 ('DES.030', 560),
@@ -60,16 +65,15 @@ INSERT INTO `diciplinas_trabalhos` (`codigo`, `idTrabalho`) VALUES
 ('DES.029', 561),
 ('DES.041', 562),
 ('DES.042', 562),
-('DES.041', 563),
-('DES.042', 563),
-('DES.039', 557),
-('DES.040', 557),
-('DES.044', 557),
-('DES.041', 559),
-('DES.043', 559),
 ('DES.033', 568),
 ('DES.034', 568),
 ('DES.035', 568),
+('DES.001', 570),
+('DES.002', 570),
+('DES.003', 570),
+('DES.001', 571),
+('DES.041', 563),
+('DES.042', 563),
 ('DES.039', 569),
 ('DES.040', 569);
 
@@ -129,7 +133,7 @@ INSERT INTO `disciplinas` (`codigo`, `nomeDisciplina`, `horaAulaSemanal`, `carga
 ('DES.038', 'Gestão do Design', NULL, NULL, NULL, 30, 6, 1, '5290_2014_1'),
 ('DES.039', 'Legislação e Ética', NULL, NULL, NULL, 30, 8, 1, '5290_2014_1'),
 ('DES.040', 'Agenciamento e Empreendedorismo', NULL, NULL, NULL, 45, 8, 1, '5290_2014_1'),
-('DES.041', 'Seminário de TCC I', NULL, NULL, NULL, 60, 7, 1, '5290_2014_1'),
+('DES.041', 'SeminÃ¡rio de TCC I', 5, 20, 40, 60, 7, 1, '5290_2014_1'),
 ('DES.042', 'Metodologia de Pesquisa II', NULL, NULL, NULL, 30, 7, 1, '5290_2014_1'),
 ('DES.043', 'Laboratório Design', NULL, NULL, NULL, 150, 7, 1, '5290_2014_1'),
 ('DES.044', 'Seminário de TCC II', NULL, NULL, NULL, 90, 8, 1, '5290_2014_1'),
@@ -193,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `imagens` (
   `ativa` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`idImagem`),
   KEY `idTrabalho` (`idTrabalho`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=120 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=128 ;
 
 --
 -- Extraindo dados da tabela `imagens`
@@ -214,7 +218,7 @@ INSERT INTO `imagens` (`data`, `imagem`, `titulo`, `idImagem`, `idTrabalho`, `at
 ('2016-12-08', 'f7e891e5316935800bf45b5e219db555.jpg', 'titulo do trabalho 40 12jan2017', 79, 561, 1),
 ('2016-12-08', '0814173303de57bdc6b0e18fdf36e71b.jpg', 'titulo do trabalho 40 12jan2017', 80, 561, 1),
 ('2016-12-08', '3bd570a146505ae338906a384102e3cd.jpg', 'titulo do trabalho 40 12jan2017', 81, 561, 1),
-('2016-12-08', '0ebdd91299890541ca8566fc5671f22d.jpg', ' Editado - titulo do trabalho 37-edit', 82, 557, 1),
+('2016-12-08', '0ebdd91299890541ca8566fc5671f22d.jpg', ' Editado - titulo do trabalho 37-edit', 82, 557, 0),
 ('2016-12-08', '3640841544286aee57dd1b07737e82f9.jpg', ' Editado - titulo do trabalho 37-edit', 83, 557, 0),
 ('2016-12-08', '6b1b8493b4eedabdee13f1246846111a.jpg', ' Editado - titulo do trabalho 37-edit', 84, 557, 0),
 ('2017-04-26', '0b54fc425372b19433e50e8751c054ab.jpg', 'TituloTrabalho teste 4 abril', 85, 562, 1),
@@ -236,7 +240,15 @@ INSERT INTO `imagens` (`data`, `imagem`, `titulo`, `idImagem`, `idTrabalho`, `at
 ('2017-04-19', 'ce188f9387251d3474bd358c0dbf77d3.jpg', 'teste 5 abril', 116, 569, 1),
 ('2017-04-19', 'cb6e1850a82a4a6e0f15df7538b3bc6a.jpg', 'teste 5 abril', 117, 569, 1),
 ('2017-04-19', '4824a9209315a1b0d5b128a7d44738e9.jpg', 'teste 5 abril', 118, 569, 1),
-('2017-04-19', 'aaa98d1ae8ec493d8b5d0dce4252815f.jpg', 'teste 5 abril', 119, 569, 1);
+('2017-04-19', 'aaa98d1ae8ec493d8b5d0dce4252815f.jpg', 'teste 5 abril', 119, 569, 1),
+('2000-01-01', '23356104472a423b961bf94cd3ea3635.png', 'codTeste1', 120, 570, 1),
+('2000-01-01', 'e4021a9cc16c25787ac56ccb376182cb.png', 'codTeste1', 121, 570, 1),
+('2000-01-01', 'b9af47a69c55fa53e385c7641dd0378e.png', 'codTeste1', 122, 570, 1),
+('2000-01-01', '5226771c493db9a24a354445cab17727.png', 'codTeste1', 123, 570, 1),
+('2000-01-01', 'aaa61e0989a2a0c57ad1f25771421260.png', 'codTeste1', 124, 570, 1),
+('2000-01-01', 'ea4421cbeb3c3b6758b99fb47c6916e3.png', 'codTeste2', 125, 571, 1),
+('2016-12-08', '1a259a8f50c0e375e65f8c1959a1ca3c.jpg', ' Editado - titulo do trabalho 37-edit', 126, 557, 1),
+('2016-12-08', 'b65ee60d3d87b2b8f3f928145f6678df.jpg', ' Editado - titulo do trabalho 37-edit', 127, 557, 1);
 
 -- --------------------------------------------------------
 
@@ -250,17 +262,18 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   `titulo` varchar(300) DEFAULT NULL,
   `imagem` varchar(120) DEFAULT NULL,
   PRIMARY KEY (`idNoticia`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Extraindo dados da tabela `noticias`
 --
 
 INSERT INTO `noticias` (`idNoticia`, `noticia`, `titulo`, `imagem`) VALUES
-(2, '<h3>Anime:&nbsp; Suisei No Gargantia<br />\r\nPor:&nbsp;Lucas Carvalho</h3>\r\n\r\n<p>G&ecirc;nero:A&ccedil;&atilde;o , Mecha<br />\r\nEp: 13 (2) ovas<br />\r\nTemporadas: 2<br />\r\nAno: 2013</p>\r\n\r\n<p>Sinopse: Num long&iacute;nquo futuro, a Alian&ccedil;a Gal&aacute;ctica Humana t&ecirc;m lutado constantemente pela sua sobreviv&ecirc;ncia contra uma grotesca ra&ccedil;a de seres conhecidos como &ldquo;Hidiaasu&rdquo;. Durante uma batalha intensa, Redo e o seu mech Chamber s&atilde;o engolidos por uma distor&ccedil;&atilde;o no tempo e no espa&ccedil;o. Ao acordar do seu estado de hiberna&ccedil;&atilde;o artificialmente induzido, Redo apercebe-se que chegou &agrave; Terra, um planeta fronteiri&ccedil;o completamente inundado onde as pessoas vivem em navios gigantes, recolhendo rel&iacute;quias das profundezas dos oceanos. Redo chega a uma das frotas chamada Gargantia onde &eacute; for&ccedil;ado a conviver com Amy, uma garota de 15 anos que trabalha como mensageira.</p>\r\n\r\n<p>Nota : 9,5/10 ( Super Recomendo, Nunca curti anime mecha mas eu abri uma exce&ccedil;&atilde;o. Me chamou bastante aten&ccedil;&atilde;o por ter uma tecnologia no estilo meio Steampunk com Futurista e a Hist&oacute;ria do anime &eacute; bem interessante. Ele Est&aacute; no meu top 5 )</p>\r\n', 'Noticia 1, teste ediÃ§Ã£o 2', 'df64fb6b01f3d715c1fd5b5bbaec89c9.jpg'),
-(3, '<p>Temas como a Opera&ccedil;&atilde;o Lava Jato, trajet&oacute;ria pol&iacute;tica e casamento gay foram tratados. Outras pol&ecirc;micas, como descriminaliza&ccedil;&atilde;o do aborto e do porte de maconha, por sua vez, foram evitadas, em raz&atilde;o de julgamentos pendentes no STF sobre estes assuntos. Veja abaixo as principais respostas de Moraes na sabatina: Lava Jato Moraes prometeu atuar com &ldquo;absoluta imparcialidade e independ&ecirc;ncia&rdquo; e sem &ldquo;nenhuma vincula&ccedil;&atilde;o pol&iacute;tico-partid&aacute;ria&rdquo; na Corte, inclusive nos casos relacionados &agrave; Opera&ccedil;&atilde;o Lava Jato. &ldquo;Assim como no hist&oacute;rico do STF, posso garantir que se aprovado for pelo Senado, atuarei com absoluta imparcialidade e liberdade no momento de vota&ccedil;&atilde;o&rdquo;, afirmou. Ele acrescentou que n&atilde;o deve atuar na maioria das a&ccedil;&otilde;es, j&aacute; que vai integrar a Primeira e n&atilde;o a Segunda Turma da Corte, respons&aacute;vel pela opera&ccedil;&atilde;o. Tamb&eacute;m disse que, eventualmente, poder&aacute; ser revisor nos casos levados a plen&aacute;rio (n&atilde;o h&aacute; nenhum atualmente). &ldquo;Em havendo algum caso no plen&aacute;rio, o revisor n&atilde;o participa da abertura da investiga&ccedil;&atilde;o, na investiga&ccedil;&atilde;o, n&atilde;o h&aacute; revisoria na den&uacute;ncia e ao final vota como qualquer outro dos ministros&rdquo;, disse.</p>\r\n', 'Lava Jato', '6d1d6d135b4b676e3c2756f8836fd3f0.jpg'),
-(5, '<p>feira (22) com pedido de recupera&ccedil;&atilde;o judicial perante a Comarca da Capital do Estado de S&atilde;o Paulo, segundo fato relevante (comunicado ao mercado). Veja perguntas e respostas sobre recupera&ccedil;&atilde;o judicial De acordo com o documento, a decis&atilde;o foi tomada porque o acordo de reestrutura&ccedil;&atilde;o de d&iacute;vidas celebrado com os bancos n&atilde;o surtiu o efeito esperado. O plano previa prorroga&ccedil;&atilde;o de pagamentos de juros e amortiza&ccedil;&atilde;o de principal, al&eacute;m de novo financiamento para cobrir despesas gerais e administrativas. &quot;O Grupo PDG continuou a enfrentar s&eacute;rias dificuldades na gest&atilde;o e continuidade de seus empreendimentos imobili&aacute;rios, tais como o crescente n&uacute;mero de distratos de unidades vendidas, a queda nas vendas em todo Brasil, a interrup&ccedil;&atilde;o de obras em andamento, o ac&uacute;mulo de d&iacute;vidas condominiais, de IPTU e com fornecedores de produtos e servi&ccedil;os, e ainda o grande volume de a&ccedil;&otilde;es judiciais movidas por clientes, ex-clientes e funcion&aacute;rios de prestadores de servi&ccedil;o&quot;, disse a empresa. Por isso, o conselho de administra&ccedil;&atilde;o da PDG concluiu que o ajuizamento da recupera&ccedil;&atilde;o judicial &eacute; a &quot;medida mais adequada&quot; neste momento. Ainda segundo o fato relevante, uma Assembleia Geral Extraordin&aacute;ria foi convocada para ratifica&ccedil;&atilde;o do pedido.</p>\r\n', 'noticia 22fev, edit 2', '2c9899af1b93e0f39743dcf63e4d56a5.jpg'),
-(6, '<h1>3.2X Ramifica&ccedil;&atilde;o (Branching) no Git - B&aacute;sico de Branch e Merge</h1>\r\n\r\n<h2>B&aacute;sico de Branch e Merge</h2>\r\n\r\n<p>Vamos ver um exemplo simples de uso de branch e merge com um fluxo de trabalho que voc&ecirc; pode usar no mundo real. Voc&ecirc; seguir&aacute; esses passos:</p>\r\n\r\n<ol>\r\n	<li>Trabalhar em um web site.</li>\r\n	<li>Criar um branch para uma nova hist&oacute;ria em que est&aacute; trabalhando.</li>\r\n	<li>Trabalhar nesse branch.</li>\r\n</ol>\r\n\r\n<p>Nesse etapa, voc&ecirc; receber&aacute; um telefonema informando que outro problema cr&iacute;tico existe e precisa de corre&ccedil;&atilde;o. Voc&ecirc; far&aacute; o seguinte:</p>\r\n\r\n<ol>\r\n	<li>Voltar ao seu branch de produ&ccedil;&atilde;o.</li>\r\n	<li>Criar um branch para adicionar a corre&ccedil;&atilde;o.</li>\r\n	<li>Depois de testado, fazer o merge do branch da corre&ccedil;&atilde;o, e enviar para produ&ccedil;&atilde;o.</li>\r\n	<li>Retornar &agrave; sua hist&oacute;ria anterior e continuar trabalhando.</li>\r\n</ol>\r\n\r\n<h3><a href="https://git-scm.com/book/pt-br/v1/Ramifica%C3%A7%C3%A3o-Branching-no-Git-B%C3%A1sico-de-Branch-e-Merge#Branch-BÃ¡sico">Branch B&aacute;sico</a></h3>\r\n\r\n<p>Primeiro, digamos que voc&ecirc; esteja trabalhando no seu projeto e j&aacute; tem alguns commits (veja Figura 3-10).</p>\r\n', 'Notica 4 Abril, edit', '4aff296c25082f2b17cca0a57978cb51.jpg');
+(2, '<p>texto</p>\r\n\r\n<p>texto</p>\r\n\r\n<p>texto</p>\r\n\r\n<p>texto</p>\r\n\r\n<p>texto</p>\r\n\r\n<p><br />\r\ntexto</p>\r\n', 'Exemplo, Noticia 1, teste ediÃ§Ã£o 3', 'df64fb6b01f3d715c1fd5b5bbaec89c9.jpg'),
+(3, '<p>Temas como a Opera&ccedil;&atilde;o Lava Jato, trajet&oacute;ria pol&iacute;tica e casamento gay foram tratados. Outras pol&ecirc;micas, como descriminaliza&ccedil;&atilde;o do aborto e do porte de maconha, por sua vez, foram evitadas, em raz&atilde;o de julgamentos pendentes no STF sobre estes assuntos. Veja abaixo as principais respostas de Moraes na sabatina: Lava Jato Moraes prometeu atuar com &ldquo;absoluta imparcialidade e independ&ecirc;ncia&rdquo; e sem &ldquo;nenhuma vincula&ccedil;&atilde;o pol&iacute;tico-partid&aacute;ria&rdquo; na Corte, inclusive nos casos relacionados &agrave; Opera&ccedil;&atilde;o Lava Jato. &ldquo;Assim como no hist&oacute;rico do STF, posso garantir que se aprovado for pelo Senado, atuarei com absoluta imparcialidade e liberdade no momento de vota&ccedil;&atilde;o&rdquo;, afirmou. Ele acrescentou que n&atilde;o deve atuar na maioria das a&ccedil;&otilde;es, j&aacute; que vai integrar a Primeira e n&atilde;o a Segunda Turma da Corte, respons&aacute;vel pela opera&ccedil;&atilde;o. Tamb&eacute;m disse que, eventualmente, poder&aacute; ser revisor nos casos levados a plen&aacute;rio (n&atilde;o h&aacute; nenhum atualmente). &ldquo;Em havendo algum caso no plen&aacute;rio, o revisor n&atilde;o participa da abertura da investiga&ccedil;&atilde;o, na investiga&ccedil;&atilde;o, n&atilde;o h&aacute; revisoria na den&uacute;ncia e ao final vota como qualquer outro dos ministros&rdquo;, disse.</p>\r\n', 'Exemplo, Lava Jato', '6d1d6d135b4b676e3c2756f8836fd3f0.jpg'),
+(5, '<p>feira (22) com pedido de recupera&ccedil;&atilde;o judicial perante a Comarca da Capital do Estado de S&atilde;o Paulo, segundo fato relevante (comunicado ao mercado). Veja perguntas e respostas sobre recupera&ccedil;&atilde;o judicial De acordo com o documento, a decis&atilde;o foi tomada porque o acordo de reestrutura&ccedil;&atilde;o de d&iacute;vidas celebrado com os bancos n&atilde;o surtiu o efeito esperado. O plano previa prorroga&ccedil;&atilde;o de pagamentos de juros e amortiza&ccedil;&atilde;o de principal, al&eacute;m de novo financiamento para cobrir despesas gerais e administrativas. &quot;O Grupo PDG continuou a enfrentar s&eacute;rias dificuldades na gest&atilde;o e continuidade de seus empreendimentos imobili&aacute;rios, tais como o crescente n&uacute;mero de distratos de unidades vendidas, a queda nas vendas em todo Brasil, a interrup&ccedil;&atilde;o de obras em andamento, o ac&uacute;mulo de d&iacute;vidas condominiais, de IPTU e com fornecedores de produtos e servi&ccedil;os, e ainda o grande volume de a&ccedil;&otilde;es judiciais movidas por clientes, ex-clientes e funcion&aacute;rios de prestadores de servi&ccedil;o&quot;, disse a empresa. Por isso, o conselho de administra&ccedil;&atilde;o da PDG concluiu que o ajuizamento da recupera&ccedil;&atilde;o judicial &eacute; a &quot;medida mais adequada&quot; neste momento. Ainda segundo o fato relevante, uma Assembleia Geral Extraordin&aacute;ria foi convocada para ratifica&ccedil;&atilde;o do pedido.</p>\r\n', 'Exemplo, noticia 22fev, edit 2', '2c9899af1b93e0f39743dcf63e4d56a5.jpg'),
+(6, '<h1>3.2X Ramifica&ccedil;&atilde;o (Branching) no Git - B&aacute;sico de Branch e Merge</h1>\r\n\r\n<h2>B&aacute;sico de Branch e Merge</h2>\r\n\r\n<p>Vamos ver um exemplo simples de uso de branch e merge com um fluxo de trabalho que voc&ecirc; pode usar no mundo real. Voc&ecirc; seguir&aacute; esses passos:</p>\r\n\r\n<ol>\r\n	<li>Trabalhar em um web site.</li>\r\n	<li>Criar um branch para uma nova hist&oacute;ria em que est&aacute; trabalhando.</li>\r\n	<li>Trabalhar nesse branch.</li>\r\n</ol>\r\n\r\n<p>Nesse etapa, voc&ecirc; receber&aacute; um telefonema informando que outro problema cr&iacute;tico existe e precisa de corre&ccedil;&atilde;o. Voc&ecirc; far&aacute; o seguinte:</p>\r\n\r\n<ol>\r\n	<li>Voltar ao seu branch de produ&ccedil;&atilde;o.</li>\r\n	<li>Criar um branch para adicionar a corre&ccedil;&atilde;o.</li>\r\n	<li>Depois de testado, fazer o merge do branch da corre&ccedil;&atilde;o, e enviar para produ&ccedil;&atilde;o.</li>\r\n	<li>Retornar &agrave; sua hist&oacute;ria anterior e continuar trabalhando.</li>\r\n</ol>\r\n\r\n<h3><a href="https://git-scm.com/book/pt-br/v1/Ramifica%C3%A7%C3%A3o-Branching-no-Git-B%C3%A1sico-de-Branch-e-Merge#Branch-BÃ¡sico">Branch B&aacute;sico</a></h3>\r\n\r\n<p>Primeiro, digamos que voc&ecirc; esteja trabalhando no seu projeto e j&aacute; tem alguns commits (veja Figura 3-10).</p>\r\n', 'Exemplo, Notica 4 Abril, edit', '4aff296c25082f2b17cca0a57978cb51.jpg'),
+(7, '<p>Rio de Janeiro deve reunir cerca de 70 mil f&atilde;s de games e da cultura pop na Barra da Tijuca, na Zona Oeste, durante o festival Geek &amp; Game Rio. O evento ser&aacute; realizado entre os dias 21 e 23 de abril e ter&aacute; como destaque o Gamer Stadium, uma arena onde equipes profissionais ir&atilde;o proporcionar batalhas para o p&uacute;blico assistir.</p>\r\n\r\n<p>Entre as atividades, o Geek &amp; Game ter&aacute; a presen&ccedil;a de personalidades internacionais que atuam no mundo geek, concurso de cosplay e encontro de youtubers. A diretora da Fagga, empresa que organiza o festival, Tatiana Zaccaro, afirmou que o evento pretende atingir tanto os especialistas no assunto e como pessoas que querem come&ccedil;ar a se familiarizar com o tema.</p>\r\n\r\n<p>&ldquo;O Geek &amp; Game &eacute; um evento de programa&ccedil;&atilde;o, o p&uacute;blico poder&aacute; visitar uma arena de game onde teremos campeonatos. Ser&aacute; uma arena de 900 m&sup2; onde as equipes v&atilde;o se enfrentar. O evento ter&aacute; tamb&eacute;m um audit&oacute;rio com encontro de youtubers, uma &aacute;rea de concurso de cosplay, uma &aacute;rea infantil para as crian&ccedil;as e teremos esta&ccedil;&otilde;es de fliperama. O evento &eacute; bem abrangente, quer atingir tanto fam&iacute;lias quanto os apaixonados por game&rdquo;, afirmou Tatiana Zacaaro.</p>\r\n', 'Exemplo, noticia 23 maio, edit 0', '0662955ce7c45e097519c86993c993df.jpg');
 
 -- --------------------------------------------------------
 
@@ -317,21 +330,23 @@ CREATE TABLE IF NOT EXISTS `trabalhos` (
   `semestre` int(11) DEFAULT NULL,
   `ativo` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`idTrabalho`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=570 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=572 ;
 
 --
 -- Extraindo dados da tabela `trabalhos`
 --
 
 INSERT INTO `trabalhos` (`idTrabalho`, `autor`, `data`, `tipo`, `tituloTrabalho`, `semestre`, `ativo`) VALUES
-(557, 'Teste 4 abril', '2016-12-08', 'trabalho voluntario 37-edit', ' Editado - titulo do trabalho 37-edit', 8, 1),
-(559, 'XXX Kris 26dez', '2016-12-22', 'Trabalhos de Vidas', 'SensaÃ§Ãµes e Dores', 7, 1),
-(560, 'Kris FX', '2016-05-25', 'Animais da Vida', 'Gatos na Janela', 4, 1),
-(561, 'nome autor 40 12jan2017', '2016-12-08', 'trabalho voluntario 40 12jan2017', 'titulo do trabalho 40 12jan2017', 4, 1),
-(562, 'NomeAutor teste 4 abril', '2017-04-26', 'Estudo V', 'TituloTrabalho teste 4 abril', 7, 1),
-(563, 'NomeAutor teste 4 abril', '2017-04-19', 'Estudo v', 'T teste 4 abril', 7, 0),
-(568, 'x2 teste 4 abril', '2017-04-19', 'x2 teste 4 abril', 'x2 teste 4 abril', 5, 1),
-(569, 'teste 5 abril', '2017-04-19', 'teste 5 abril', 'teste 5 abril', 8, 0);
+(557, 'Exemplo, Teste 4 abril, edit 4', '2016-12-08', 'trabalho voluntario 37-edit', ' Editado - titulo do trabalho 37-edit', 8, 1),
+(559, 'Exemplo, XXX Kris 26dez', '2016-12-22', 'Trabalhos de Vidas', 'SensaÃ§Ãµes e Dores', 7, 1),
+(560, 'Exemplo, Kris FX', '2016-05-25', 'Animais da Vida', 'Gatos na Janela', 4, 0),
+(561, 'Exemplo, nome autor 40 12jan2017', '2016-12-08', 'trabalho voluntario 40 12jan2017', 'titulo do trabalho 40 12jan2017', 4, 0),
+(562, 'Exemplo, NomeAutor teste 4 abril', '2017-04-26', 'Estudo V', 'TituloTrabalho teste 4 abril', 7, 1),
+(563, 'Exemplo, NomeAutor teste 4 abril', '2017-04-19', 'Estudo v', 'T teste 4 abril', 7, 1),
+(568, 'Exemplo, x2 teste 4 abril', '2017-04-19', 'x2 teste 4 abril', 'x2 teste 4 abril', 5, 1),
+(569, 'Exemplo, teste 5 abril', '2017-04-19', 'teste 5 abril', 'teste 5 abril', 8, 1),
+(570, 'Exemplo, codTeste1', '2000-01-01', 'codTeste1', 'codTeste1', 1, 1),
+(571, 'Exemplo, codTeste2', '2000-01-01', 'codTeste2', 'codTeste2', 1, 1);
 
 -- --------------------------------------------------------
 

@@ -31,8 +31,7 @@ function moveUploadImagens($imagens){ /* retorna um array indexado com os nomes 
             	$tmp = $imagem['tmp_name']; //caminho temporário da imagem
 
             	/* se enviar a foto, insere o nome da foto no banco de dados */
-            	if(move_uploaded_file($tmp,$pasta.$nome_atual)){            
-             		echo "<img src='".$pastaSaida.$nome_atual."' id='previsualizar' width='200px'>"; //imprime a foto na tela            		
+            	if(move_uploaded_file($tmp,$pasta.$nome_atual)){                         		          	
              		$imagensUpadas[$i] = $nome_atual;
 
              	}else{
@@ -105,8 +104,7 @@ function pegarImagens(){
 		$arrayImagens = [];
 		$contadorFiles = 0;    
 		
-		while(array_key_exists('fileimagem'.$contadorFiles, $_FILES)){
-			e("imagem ".$contadorFiles.": ".$_FILES['fileimagem'.$contadorFiles]['tmp_name']."<br>");
+		while(array_key_exists('fileimagem'.$contadorFiles, $_FILES)){			
 			$arrayImagens[$contadorFiles] = $_FILES['fileimagem'.$contadorFiles];			
 			$contadorFiles++;	
 		}	

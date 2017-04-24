@@ -2,6 +2,7 @@
 require "inc/connect.php";
 
 define("DIR_RAIZ", "http://localhost/Memoria-Visual/");
+//define("DIR_RAIZ", "http://artanimes.com/projects/memoria-visual/");
 
 $paginas_permitidas = array('inicio', 'dados-gerais', 'carreira', 'grade-curricular' , 'galeria', 'pesquisa', 'extensao', 'tcc', 'noticias', 'contato');
 
