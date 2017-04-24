@@ -24,15 +24,12 @@ Script, DDL, DLM estão em: /bd/script.sql
     <li>-/area-administrativa/inc/connect.php
     <li>-/index.php:  DIR_RAIZ
   </ul>
-
-  <ul>
-    <li>Inf:</li>    
+  
+  <li>Inf:</li>    
     <ul>
       <li>-Acesso Área Administrativa </li>
       <li>--Login:testeusuario</li>
       <li>--Email:testeemail@gmail.com</li>
       <li>--Senha:testesenha</li>
     </ul>    
-  </ul>
-  
 </ul>
