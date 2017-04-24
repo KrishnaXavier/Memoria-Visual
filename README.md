@@ -20,16 +20,18 @@ Script, DDL, DLM estão em: /bd/script.sql
   <li>4 - Configurar os arquivos:</li>
 
   <ul>
-    <li>-/inc/connect.php
-    <li>-/area-administrativa/inc/connect.php
-    <li>-/index.php:  DIR_RAIZ
+    <li>/inc/connect.php
+    <li>/area-administrativa/inc/connect.php
+    <li>/index.php:  DIR_RAIZ
   </ul>
   
   <li>Informações Adicionais:</li>    
     <ul>
-      <li>-Acesso Área Administrativa </li>
-      <li>--Login:testeusuario</li>
-      <li>--Email:testeemail@gmail.com</li>
-      <li>--Senha:testesenha</li>
+      <li>Acesso Área Administrativa </li>
+      <ul>
+        <li>Login:testeusuario</li>
+        <li>Email:testeemail@gmail.com</li>
+        <li>Senha:testesenha</li>
+      </ul>
     </ul>    
 </ul>
