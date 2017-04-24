@@ -13,16 +13,26 @@ Script, DDL, DLM estão em: /bd/script.sql
 
 <h3>Como iniciar:</h3>
 <ul>
-<li>1 - Instalar WAMP (PHP 5, Apache 2)</li>
-<li>2 - Clonar o repositorio</li>
-<li>3 - Importar o script.sql para o Banco de Dados</li>
-<li>4 - Configurar os arquivos:</li>
--/inc/connect.php
--/area-administrativa/inc/connect.php
--/index.php:  DIR_RAIZ
-<li>Inf:</li>
--Acesso Área Administrativa 
---Login:testeusuario
---Email:testeemail@gmail.com
---Senha:testesenha
+  
+  <li>1 - Instalar WAMP (PHP 5, Apache 2)</li>
+  <li>2 - Clonar o repositorio</li>
+  <li>3 - Importar o script.sql para o Banco de Dados</li>
+  <li>4 - Configurar os arquivos:</li>
+
+  <ul>
+    <li>-/inc/connect.php
+    <li>-/area-administrativa/inc/connect.php
+    <li>-/index.php:  DIR_RAIZ
+  </ul>
+
+  <ul>
+    <li>Inf:</li>    
+    <ul>
+      <li>-Acesso Área Administrativa </li>
+      <li>--Login:testeusuario</li>
+      <li>--Email:testeemail@gmail.com</li>
+      <li>--Senha:testesenha</li>
+    </ul>    
+  </ul>
+  
 </ul>
