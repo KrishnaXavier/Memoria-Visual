@@ -25,7 +25,7 @@ Script, DDL, DLM estão em: /bd/script.sql
     <li>-/index.php:  DIR_RAIZ
   </ul>
   
-  <li>Inf:</li>    
+  <li>Informações Adicionais:</li>    
     <ul>
       <li>-Acesso Área Administrativa </li>
       <li>--Login:testeusuario</li>
