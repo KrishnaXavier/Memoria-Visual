@@ -61,54 +61,34 @@
 	<h2>Confira o <strong>portifolio dos estudantes</strong></h2>
 
 	<ul class="lista-galerias">
-		<li>
-			<a href="##">
+		<?php
+
+		$n_trabalhos = 0;
+
+		$sql_galeria = $pdo->query("SELECT * FROM trabalhos LEFT JOIN imagens USING (idTrabalho) WHERE ativo = 1");
+		while($dados_item = $sql_galeria->fetch(PDO::FETCH_ASSOC))
+		{
+			$n_trabalhos++;
+
+			?>
+
+		<li <?php if($n_trabalhos > 4 and false) echo 'style="display:none;"'; ?>>
+			<a href="<?php echo $dados_item['idTrabalho']; ?>">
 				<!-- imagem do portifolio -->
-				<img src="<?php echo DIR_RAIZ; ?>imgs/noticias/9fcd9626641a2070e753347fbf662b52.jpg">
+				<img src="<?php echo DIR_RAIZ; ?>imgs/noticias/<?php echo $dados_item['imagem']; ?>" alt="<?php echo $dados_item['titulo']; ?>">
 				<!-- titulo -->
-				<span class="titulo">Coleção Cultura Brasileira</span>
+				<span class="titulo"><?php echo $dados_item['titulo']; ?></span>
 				<!-- autor -->
-				<span>de <strong class="autor">Liader Soares</strong></span>
+				<span>de <strong class="autor"><?php echo $dados_item['autor']; ?></strong></span>
 				<!-- Categoria -->
-				<a href="#" class="categoria">Design Editorial</a>
+				<a href="#" class="categoria"><?php echo $dados_item['tipo']; ?></a>
 			</a>
 		</li>
-		<li>
-			<a href="##">
-				<!-- imagem do portifolio -->
-				<img src="<?php echo DIR_RAIZ; ?>imgs/noticias/9fcd9626641a2070e753347fbf662b52.jpg">
-				<!-- titulo -->
-				<span class="titulo">Coleção Cultura Brasileira</span>
-				<!-- autor -->
-				<span>de <strong class="autor">Liader Soares</strong></span>
-				<!-- Categoria -->
-				<a href="#" class="categoria">Design Editorial</a>
-			</a>
-		</li>
-		<li>
-			<a href="##">
-				<!-- imagem do portifolio -->
-				<img src="<?php echo DIR_RAIZ; ?>imgs/noticias/9fcd9626641a2070e753347fbf662b52.jpg">
-				<!-- titulo -->
-				<span class="titulo">Coleção Cultura Brasileira</span>
-				<!-- autor -->
-				<span>de <strong class="autor">Liader Soares</strong></span>
-				<!-- Categoria -->
-				<a href="#" class="categoria">Design Editorial</a>
-			</a>
-		</li>
-		<li>
-			<a href="##">
-				<!-- imagem do portifolio -->
-				<img src="<?php echo DIR_RAIZ; ?>imgs/noticias/9fcd9626641a2070e753347fbf662b52.jpg">
-				<!-- titulo -->
-				<span class="titulo">Coleção Cultura Brasileira</span>
-				<!-- autor -->
-				<span>de <strong class="autor">Liader Soares</strong></span>
-				<!-- Categoria -->
-				<a href="#" class="categoria">Design Editorial</a>
-			</a>
-		</li>
+
+			<?php
+		}
+
+		?>
 	</ul>
 
 	<div class="mais-portifolios">
