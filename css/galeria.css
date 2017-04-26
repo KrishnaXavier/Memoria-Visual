@@ -87,12 +87,12 @@ h1 {
 	padding: 0;
 	margin: 0;
 	list-style: none;
-	display: flex;
-	align-content: center;
+	display: block;
 }
 .lista-galerias li {
-	display: inline-block;
-	width: 25%;
+	display: inline-table;
+	vertical-align: top;
+	width: 24.7%;
 	padding: 0 15px;
 	box-sizing: border-box;
 	color: #000;
