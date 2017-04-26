@@ -2,4 +2,6 @@ _trash
 area-administrativa/_trash
 inc/connectRemote.php
 area-administrativa/inc/connectRemote.php
+area-administrativa/adicionar-disciplina_teste.php
+area-administrativa/classes/AdicionarDisciplina_teste.php
 
