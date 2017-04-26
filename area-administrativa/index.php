@@ -9,7 +9,8 @@ $pages = array(
 	'noticia', 'painel-noticia', 'editar-noticia', 'mostrar-noticias', 
 	'documentos', 'carregar-imagem', 
 	'disciplinas', 'editar-disciplinas', 'adicionar-disciplina', 'mostrar-disciplinas-desativadas', 'mostrar-disciplinas',
-	'login'
+	'login',
+	'adicionar-disciplina_teste'
 	);
 
 $url = (isset($_GET['url'])) ? $_GET['url']:'inicio.php';

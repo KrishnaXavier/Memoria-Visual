@@ -85,11 +85,11 @@
 							}		
 
 							echo '<div class="semestre'.$semestre.'-cadeiras cadeiras" style="display:'.$display.';" >';							
-							while($result!=null){ 					
-								$nome_utf8_enc = utf8_encode ($result['nomeDisciplina']);			
+							while($result!=null){ 													
+								$nome = $result['nomeDisciplina'];
 								$codigo = $result['codigo'];
 								?>  <div class="slot-cadeira">								
-								<div name="cadeiras" class="cadeira"><?php echo $nome_utf8_enc; ?></div> 																		
+								<div name="cadeiras" class="cadeira" id=""><?php echo ($nome); ?></div> 																		
 								<?php botaoEditar($codigo); ?>									
 								<button class="btn btn-desativar"onclick="desativarDisciplina(<?php echo "'$codigo'"; ?>)">Desativar Disciplina</button>								
 							</div>

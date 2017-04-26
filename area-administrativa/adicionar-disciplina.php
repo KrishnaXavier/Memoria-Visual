@@ -5,7 +5,7 @@
 
 		var request = $.ajax({
 			type: "POST",			
-			url: 'classes/AdicionarDisciplina.php',
+			url: 'classes/AdicionarDisciplina.php',			
 			data: dados,  							
 			success:function(data){								
 				if(data!=""){
@@ -13,11 +13,11 @@
 				}else{
 					$('#aviso').html('Disciplina Adicionada!');
 					setTimeout(
-						function(){
-							location.reload();	
-						},
-						2500
-						);
+					 	function(){
+					  		location.reload();	
+					  	},
+					  	1500
+					  	);
 				}				
 			},
 			beforeSend: function(){     
@@ -34,29 +34,29 @@
 		});
 	}
 	function pegarDados(){
-		/* preencher campos automaticos
-		let t = 1;
-		$('input[name="codigo"]').val("codTeste"+t);
-		$('input[name="nome"]').val("codNome"+t);
-		$('input[name="semestre"]').val(5);
-		$('input[name="emenda"]').val("123_444");
-		$('input[name="semanal"]').val(3.5);
-		$('input[name="teorica"]').val(100);
-		$('input[name="pratica"]').val(60);
-		$('input[name="total"]').val(160);
-		*/
-
 		let dados = {
 			"codigo": $('input[name="codigo"]').val(),
 			"nome": $('input[name="nome"]').val(), 
 			"semestre": $('input[name="semestre"]').val(), 
-			"emenda": $('input[name="emenda"]').val(),		
+			"matriz": $('input[name="matriz"]').val(),		
 			"semanal": $('input[name="semanal"]').val(),
 			"teorica": $('input[name="teorica"]').val(),
 			"pratica": $('input[name="pratica"]').val(),
 			"total": $('input[name="total"]').val(),
 		}		
 		return dados;
+
+		/* preencher campos automaticos
+		let t = 1;
+		$('input[name="codigo"]').val("códiçãoTeste"+t);
+		$('input[name="nome"]').val("códiçãoNome"+t);
+		$('input[name="semestre"]').val(5);
+		$('input[name="matriz"]').val("123_444");
+		$('input[name="semanal"]').val(3.5);
+		$('input[name="teorica"]').val(100);
+		$('input[name="pratica"]').val(60);
+		$('input[name="total"]').val(160);
+		*/
 	}
 </script>
 <h1 class='titulo-pagina'>Adicionar Disciplinas</h1>
@@ -65,7 +65,7 @@
 		<div class='pai-conteiner-menor'>
 			<div class='conteiner-menor'>
 
-				<form onsubmit="adicionarDisciplina(); return false;">
+				<form onsubmit="adicionarDisciplina(); return false;" method="POST">
 					<div class="conteiner-campos" id="">
 						<div class="titulo-campo">Código:</div>
 						<input type="text" class="" id="codigo" name="codigo" placeholder="código único, não editável" required>
@@ -82,8 +82,8 @@
 					</div>			
 
 					<div class="conteiner-campos" id="">
-						<div class="titulo-campo">Emenda:</div>
-						<input type="text" class="" id="emenda" name="emenda" placeholder="código da emenda" required>
+						<div class="titulo-campo">Matriz:</div>
+						<input type="text" class="" id="matriz" name="matriz" placeholder="código da matriz" required>
 					</div>
 				</div>
 

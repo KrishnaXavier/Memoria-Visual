@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>    
-	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>	
-	<meta property="og:title" content="Memória Visual - Bacharelado em Design">
-	<meta property="og:site_name" content="Memória Visual - Bacharelado em Design">	
-	<meta property="og:type" content="website">		
+<head>    	
+	<meta charset="utf-8">
 	<link rel='stylesheet' href='css/style.css'>	
 	<link rel='stylesheet' href='css/painel.css'>		
 	<link rel='icon' href='imgs/fixas/favicon.png' type='image/x-icon'/>

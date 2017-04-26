@@ -52,5 +52,3 @@ require "inc/head.php";
 	<div class='alerta'>	
 	</div>
 </center>
-
-

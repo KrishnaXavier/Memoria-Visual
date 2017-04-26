@@ -9,7 +9,7 @@ function editarDisciplina($pdo){
 	$codigo = $_POST["codigo"];
 	$nome = $_POST["nome"];
 	$semestre = $_POST["semestre"];
-	$emenda = $_POST["emenda"];
+	$matriz = $_POST["matriz"];
 	$semanal = $_POST["semanal"];
 	$teorica = $_POST["teorica"];
 	$pratica = $_POST["pratica"];
@@ -17,7 +17,7 @@ function editarDisciplina($pdo){
 	
 	$query=$pdo->query("
 		UPDATE disciplinas 
-		SET nomeDisciplina='".$nome."', horaAulaSemanal='".$semanal."', cargaHorarioTeoria='".$teorica."', 	cargaHorarioPratica='".$pratica."', cargaHorarioTotal='".$total."', semestre='".$semestre."', emenda='".$emenda."' 
+		SET nomeDisciplina='".$nome."', horaAulaSemanal='".$semanal."', cargaHorarioTeoria='".$teorica."', 	cargaHorarioPratica='".$pratica."', cargaHorarioTotal='".$total."', semestre='".$semestre."', matriz='".$matriz."' 
 		WHERE codigo = '".$codigoPrimario."' ");
 
 	if(!$query){		

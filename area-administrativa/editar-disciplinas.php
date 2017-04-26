@@ -15,7 +15,7 @@ if($_GET['idDisciplina']){
 	$pratica = $result['cargaHorarioPratica'];
 	$total = $result['cargaHorarioTotal'];
 	$semestre = $result['semestre'];
-	$emenda = $result['emenda'];	
+	$matriz = $result['matriz'];	
 }else{
 	echo "<h1 class='titulo-pagina'>Disciplina não encontrada";
 }
@@ -36,7 +36,7 @@ if($_GET['idDisciplina']){
 
 					<div class="conteiner-campos" id="">
 						<div class="titulo-campo">Nome:</div>
-						<input type="text" class="" id="nome" name="nome" placeholder="nome da cadeira" required value="<?php echo utf8_encode($nome); ?>">
+						<input type="text" class="" id="nome" name="nome" placeholder="nome da cadeira" required value="<?php echo $nome; ?>">
 					</div>			
 
 					<div class="conteiner-campos" id="">
@@ -45,8 +45,8 @@ if($_GET['idDisciplina']){
 					</div>			
 
 					<div class="conteiner-campos" id="">
-						<div class="titulo-campo">Emenda:</div>
-						<input type="text" class="" id="emenda" name="emenda" placeholder="código da emenda" required value="<?php echo $emenda; ?>">
+						<div class="titulo-campo">Matriz:</div>
+						<input type="text" class="" id="matriz" name="matriz" placeholder="código da matriz" required value="<?php echo $matriz; ?>">
 					</div>
 				</div>
 
@@ -129,7 +129,7 @@ if($_GET['idDisciplina']){
 			"codigo": $('input[name="codigo"]').val(),
 			"nome": $('input[name="nome"]').val(), 
 			"semestre": $('input[name="semestre"]').val(), 
-			"emenda": $('input[name="emenda"]').val(),		
+			"matriz": $('input[name="matriz"]').val(),		
 			"semanal": $('input[name="semanal"]').val(),
 			"teorica": $('input[name="teorica"]').val(),
 			"pratica": $('input[name="pratica"]').val(),
