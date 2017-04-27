@@ -5,7 +5,7 @@ salvarDisciplina($pdo);
 
 function salvarDisciplina($pdo){
 	$codigo = $_POST["codigo"];
-	$nome = $_POST["nome"]."v3";
+	$nome = $_POST["nome"];
 	$semestre = $_POST["semestre"];
 	$matriz = $_POST["matriz"];
 	$semanal = $_POST["semanal"];

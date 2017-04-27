@@ -75,7 +75,7 @@
 		<li <?php if($n_trabalhos > 4 and false) echo 'style="display:none;"'; ?>>
 			<a href="<?php echo $dados_item['idTrabalho']; ?>">
 				<!-- imagem do portifolio -->
-				<img src="<?php echo DIR_RAIZ; ?>imgs/noticias/<?php echo $dados_item['imagem']; ?>" alt="<?php echo $dados_item['titulo']; ?>">
+				<img src="<?php echo DIR_RAIZ; ?>imgs/trabalhos/<?php echo $dados_item['imagem']; ?>" alt="<?php echo $dados_item['titulo']; ?>">
 				<!-- titulo -->
 				<span class="titulo"><?php echo $dados_item['titulo']; ?></span>
 				<!-- autor -->

@@ -150,9 +150,9 @@
 								}		
 
 								echo '<div class="semestre'.$semestre.'-cadeiras" style="display:'.$display.';" >';	
-								while($result!=null){ 					
-									$nome_utf8_enc = utf8_encode ($result['nomeDisciplina']);			
-									$codigo = $result['codigo'];			
+								while($result!=null){
+									$nome_utf8_enc = $result['nomeDisciplina'];
+									$codigo = $result['codigo'];
 									echo '<input type="checkbox" value="'.$codigo.'" name="cadeiras"/>'.$nome_utf8_enc.' <br>';
 									$result=$query->fetch(PDO::FETCH_ASSOC);
 								}
